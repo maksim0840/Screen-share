@@ -1,44 +1,44 @@
 #include <Windows.h>
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-	// WINAPI - ñîãëàøåíèå íà âûçîâ STDCALL
-	// hInstance - äåñêðèïòîð ýêçàìïëÿðà îáúåòêà (ñîäåðæàèò ìåòà äàííûå î ïðîãðàììå) - àäðåññ â ïàìÿòè íà íà÷àëî ñèãíàòóðû
-	// hPrevInstance - óñòàðåð (èñïîëüùîâàëñÿ äëÿ 16 áèò ñèñòåìû)
-	// pCmdLine - àðãóìåíòû êîìàíäíîé ñòðîêè
-	// nCmdShow - êîë-âî àðãóìåíòîâ êîòîðûå ïðèøëè ñ êîìàíäíîé ñòðîêè (ìèíèìóì 1)
+	// WINAPI - ÑÐ¾Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ðµ Ð½Ð° Ð²Ñ‹Ð·Ð¾Ð² STDCALL
+	// hInstance - Ð´ÐµÑÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ñ€ ÑÐºÐ·Ð°Ð¼Ð¿Ð»ÑÑ€Ð° Ð¾Ð±ÑŠÐµÑ‚ÐºÐ° (ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ð¸Ñ‚ Ð¼ÐµÑ‚Ð° Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ðµ) - Ð°Ð´Ñ€ÐµÑÑ Ð² Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð½Ð° Ð½Ð°Ñ‡Ð°Ð»Ð¾ ÑÐ¸Ð³Ð½Ð°Ñ‚ÑƒÑ€Ñ‹
+	// hPrevInstance - ÑƒÑÑ‚Ð°Ñ€ÐµÐ» (Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð»ÑÑ Ð´Ð»Ñ 16-Ð±Ð¸Ñ‚ ÑÐ¸ÑÑ‚ÐµÐ¼)
+	// pCmdLine - Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð½Ð¾Ð¹ ÑÑ‚Ñ€Ð¾ÐºÐ¸
+	// nCmdShow - ÐºÐ¾Ð»-Ð²Ð¾ Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð² ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¿Ñ€Ð¸ÑˆÐ»Ð¸ Ñ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð½Ð¾Ð¹ ÑÑ‚Ñ€Ð¾ÐºÐ¸ (Ð¼Ð¸Ð½Ð¸Ð¼ÑƒÐ¼ 1)
 
-	MSG msg; // ñòóêòóðà ñ èíôîðìàöèåé î ñîîáùåíèè
-	HWND hwnd; // äåñêðèïòîð îêíà (èíôîðìàöèÿ îá îêíå)
-	WNDCLASSEX wc; // ñòóêòóðà ñ õàðàêòðèñòèêîé îêíà
+	MSG msg; // ÑÑ‚ÑƒÐºÑ‚ÑƒÑ€Ð° Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÐµÐ¹ Ð¾ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¸
+	HWND hwnd; // Ð´ÐµÑÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ñ€ Ð¾ÐºÐ½Ð° (Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¾Ð± Ð¾ÐºÐ½Ðµ)
+	WNDCLASSEX wc; // ÑÑ‚ÑƒÐºÑ‚ÑƒÑ€Ð° Ñ Ñ…Ð°Ñ€Ð°ÐºÑ‚Ñ€Ð¸ÑÑ‚Ð¸ÐºÐ¾Ð¹ Ð¾ÐºÐ½Ð°
 
-	// ÇÀÏÎËÍßÅÌ ÏÎËß ÑÒÐÓÊÒÓÐÛ
+	// Ð—ÐÐŸÐžÐ›ÐÐ•ÐÐ˜Ð• ÐŸÐžÐ›Ð•Ð™ Ð¡Ð¢Ð Ð£ÐšÐ¢Ð£Ð Ð«
 	wc.cbSize = sizeof(WNDCLASSEX);
-	wc.cbClsExtra = 0; // äîïîëíèòåëüíîå âûäåëåíèå ïàìÿòè â êëàñå îêíà (ñ.äà çàñóíóòü ðàçìåð òîãî ÷òî çàïèõèâàòü)
-	wc.cbWndExtra = 0; // äîïîëíèòåëüíîå âûäåëåíèå ïàìÿòè â êëàñå îêíà (ñ.äà çàñóíóòü ðàçìåð òîãî ÷òî çàïèõèâà
+	wc.cbClsExtra = 0; // Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð² ÐºÐ»Ð°ÑÐµ Ð¾ÐºÐ½Ð° (Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¸Ð½Ð¾Ñ„Ñ€Ð¼Ð°Ñ†Ð¸Ð¸)
+	wc.cbWndExtra = 0; // Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð² ÐºÐ»Ð°ÑÐµ Ð¾ÐºÐ½Ð° (Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¸Ð½Ð¾Ñ„Ñ€Ð¼Ð°Ñ†Ð¸Ð¸)
 	wc.hbrBackground =  (HBRUSH)(COLOR_WINDOW + 1);
-	wc.hCursor = LoadCursor(NULL, IDC_ARROW); // handle êóðñîðà
-	wc.hInstance = hInstance; // ìåòà äàííûå îá îêíå
-	wc.hIcon = LoadIcon(hInstance, IDI_APPLICATION); // ÈÊÎÍÊÀ ÏÐÈËÎÆÅÍÈß ÑÍÈÇÓ ÍÀ ÄÈÑÏÅÒ×ÅÐÅ (íå ôàéëà)
-	wc.hIconSm = LoadIcon(hInstance, IDI_APPLICATION); // èêîíêà â çàãîëîâêå îêíà
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW); // handle ÐºÑƒÑ€ÑÐ¾Ñ€Ð°
+	wc.hInstance = hInstance; // Ð¼ÐµÑ‚Ð° Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾Ð± Ð¾ÐºÐ½Ðµ
+	wc.hIcon = LoadIcon(hInstance, IDI_APPLICATION); // Ð¸ÐºÐ¾Ð½ÐºÐ° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð½Ð° Ð¿Ð°Ð½ÐµÐ»Ðµ Ð·Ð°Ð´Ð°Ñ‡ (Ð½Ðµ Ñ„Ð°Ð¹Ð»Ð°)
+	wc.hIconSm = LoadIcon(hInstance, IDI_APPLICATION); // Ð¸ÐºÐ¾Ð½ÐºÐ° Ð² Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐµ Ð¾ÐºÐ½Ð°
 	wc.lpfnWndProc = DefWindowProc;
-	wc.lpszClassName = L"MyWindow"; // èìÿ êëàññà
-	wc.lpszMenuName = NULL; // óêàçàòåëü íà èìÿ ìåíþ
-	wc.style = CS_VREDRAW | CS_HREDRAW; // ñòèëè îêíà (êîìáèíàöèÿ ôëàãîâ (áîëüøå ôëàãîâ ìîæíî ïîñìîòðåòü â äîêóìåíòàöèè())
+	wc.lpszClassName = L"MyWindow"; // Ð¸Ð¼Ñ ÐºÐ»Ð°ÑÑÐ°
+	wc.lpszMenuName = NULL; // ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° Ð¸Ð¼Ñ Ð¼ÐµÐ½ÑŽ
+	wc.style = CS_VREDRAW | CS_HREDRAW; // ÑÑ‚Ð¸Ð»Ð¸ Ð¾ÐºÐ½Ð° (ÐºÐ¾Ð¼Ð±Ð¸Ð½Ð°Ñ†Ð¸Ñ Ñ„Ð»Ð°Ð³Ð¾Ð² (Ð±Ð¾Ð»ÑŒÑˆÐµ Ñ„Ð»Ð°Ð³Ð¾Ð² ÐµÑÑ‚ÑŒ Ð² Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð°Ñ†Ð¸Ð¸))
 
-	if (!RegisterClassEx(&wc)) { //ðåãèñòðàöèÿ îêíà â ñèñòåìå + ïðîâåðêà
-		return EXIT_FAILURE; // åñëè ñîçäàòü îêíî íå óäàëîñü
+	if (!RegisterClassEx(&wc)) { //Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ñ Ð¾ÐºÐ½Ð° Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ðµ + Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ°
+		return EXIT_FAILURE; // ÐµÑÐ»Ð¸ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ Ð¾ÐºÐ½Ð¾ Ð½Ðµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ
 	}
 
 	hwnd = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"MyWindow", L"WindowTitle", WS_OVERLAPPEDWINDOW, 
-		CW_USEDEFAULT, CW_USEDEFAULT, 600, 400, NULL, NULL, hInstance, NULL); // ïàðàìåòð êëàññà ñîâïàäàåò ñ íàçâàííûì ðàíåå
+		CW_USEDEFAULT, CW_USEDEFAULT, 600, 400, NULL, NULL, hInstance, NULL); // Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ ÐºÐ»Ð°ÑÑÐ° ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÐµÑ‚ Ñ Ð½Ð°Ð·Ð²Ð°Ð½Ð½Ñ‹Ð¼ Ñ€Ð°Ð½ÐµÐµ
 	if (!hwnd) {
 		return EXIT_FAILURE;
 	}
 
-	ShowWindow(hwnd, nCmdShow); // ïîêàçàòü îêíî
-	UpdateWindow(hwnd); // îáíîâèòü îêíî
+	ShowWindow(hwnd, nCmdShow); // Ð¿Ð¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¾ÐºÐ½Ð¾
+	UpdateWindow(hwnd); // Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¾ÐºÐ½Ð¾
 
-	while (GetMessage(&msg, NULL, 0, 0) > 0) { // öèêë, îáðàáàòûâàáùèé âûçîâû
+	while (GetMessage(&msg, NULL, 0, 0) > 0) { // Ñ†Ð¸ÐºÐ», Ð¾Ð±Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°Ð±Ñ‰Ð¸Ð¹ Ð²Ñ‹Ð·Ð¾Ð²Ñ‹
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}
